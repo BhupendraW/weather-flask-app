@@ -4,7 +4,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-API_KEY = '93312f0162aa47a072147ee8d93e5c32'  # Your OpenWeatherMap API Key
+API_KEY = 'Your API KEY'  # Your OpenWeatherMap API Key
 
 def get_background(description):
     description = description.lower()
