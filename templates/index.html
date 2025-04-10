@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1116/1116453.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('{{ bg }}') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .result img {
+            width: 100px;
+        }
+
+        .error {
+            color: #ff4c4c;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌦️ Weather App</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <button type="submit">Get Weather</button>
+        </form>
+
+        {% if weather %}
+            {% if weather.error %}
+                <p class="error">{{ weather.error }}</p>
+            {% else %}
+                <div class="result">
+                    <h2>{{ weather.city }}</h2>
+                    <p>{{ weather.description.title() }}</p>
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Weather icon">
+                    <div class="info">
+                        <p>📅 Date & Time: {{ weather.date }}</p>
+                        <p>🌡️ Temperature: {{ weather.temperature }}°C</p>
+                        <p>💧 Humidity: {{ weather.humidity }}%</p>
+                        <p>🔽 Pressure: {{ weather.pressure }} hPa</p>
+                        <p>💨 Wind Speed: {{ weather.wind_speed }} m/s</p>
+                        <p>🌅 Sunrise: {{ weather.sunrise }}</p>
+                        <p>🌇 Sunset: {{ weather.sunset }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

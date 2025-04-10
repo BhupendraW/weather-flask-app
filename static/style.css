@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #000 url('https://images.unsplash.com/photo-1501973801540-537f08ccae7b') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+    margin: 0;
+}
+
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.result img {
+    width: 100px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
